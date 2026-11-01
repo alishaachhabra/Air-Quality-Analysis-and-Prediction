@@ -1,0 +1,12 @@
+{
+    "features": [
+        "PT08.S1(CO)",
+        "C6H6(GT)",
+        "NOx(GT)",
+        "NO2(GT)",
+        "T",
+        "RH",
+        "AH"
+    ],
+    "target": "CO(GT)"
+}
