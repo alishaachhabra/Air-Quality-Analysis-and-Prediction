@@ -23,6 +23,30 @@ This project analyzes air quality data and predicts carbon monoxide (CO) concent
 \* Provide an interactive interface for making predictions.
 
 
+## Project Structure
+
+```text
+Air_Quality_ML_Project/
+├── air_quality_output/
+│   ├── best_air_quality_model.pkl
+│   ├── feature_names.pkl
+│   ├── feature_metadata.json
+│   └── model_metrics.json
+├── AirQualityUCI.csv
+├── AirQualityUCI.xlsx
+├── app.py
+├── requirements.txt
+└── README.md
+```
+
+* `app.py`: Streamlit application for air quality prediction.
+* `AirQualityUCI.csv` and `AirQualityUCI.xlsx`: Dataset files.
+* `air_quality_output/`: Saved model, feature information, and evaluation metrics.
+* `requirements.txt`: Python dependencies.
+* `README.md`: Project documentation.
+
+
+
 
 \## Technology Stack
 
