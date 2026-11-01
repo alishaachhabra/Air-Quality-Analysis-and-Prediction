@@ -110,27 +110,45 @@ These metrics represent the project's chronological evaluation results and are n
 
 
 
-1\. Clone or download this repository.
+## Installation and Usage
 
+Follow these steps to run the application on your computer.
 
+### Prerequisites
 
-2\. Install the required packages:
+* Python 3.10 or a compatible version.
+* Git (optional, if cloning the repository).
 
+### 1. Clone the Repository
 
+```bash
+git clone YOUR_GITHUB_REPOSITORY_URL
+cd Air_Quality_ML_Project
+```
 
-&#x20;  `pip install -r requirements.txt`
+Replace `YOUR_GITHUB_REPOSITORY_URL` with your actual repository URL after we create it.
 
+### 2. Install Dependencies
 
+```bash
+python -m pip install -r requirements.txt
+```
 
-3\. Start the application:
+### 3. Run the Application
 
+```bash
+python -m streamlit run app.py
+```
 
+### 4. Open the Dashboard
 
-&#x20;  `python -m streamlit run app.py`
+Open the local URL displayed in the terminal, usually `http://localhost:8501`.
 
+### Troubleshooting
 
-
-4\. Open the local URL displayed in the terminal.
+* If a Python package is missing, install the dependencies again.
+* Ensure the `air_quality_output` folder contains the saved model and supporting files.
+* If the application does not start, check the terminal for the error message.
 
 
 
