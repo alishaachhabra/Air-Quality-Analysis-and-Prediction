@@ -1,170 +1,203 @@
-\# Air Quality Analysis and Prediction Using Machine Learning
+# Air Quality Analysis and Prediction Using Machine Learning
 
+An end-to-end Machine Learning project that explores air quality measurements, compares regression algorithms, and estimates carbon monoxide (CO) concentration using a tuned Extra Trees Regressor.
 
+The project includes data preprocessing, exploratory data analysis, model evaluation, hyperparameter tuning, and an interactive Streamlit application.
 
-\## Overview
+## Project Overview
 
+Air pollution is an important environmental concern. Analysing air quality measurements can help us understand relationships between different pollutants and environmental conditions.
 
+This project uses the UCI Air Quality dataset to analyse sensor readings and develop machine learning regression models for estimating carbon monoxide concentration (CO(GT)).
 
-This project analyzes air quality data and predicts carbon monoxide (CO) concentration using machine learning. It includes a Streamlit web application that allows users to enter environmental measurements and obtain a model-based prediction.
+## Project Objectives
 
+- Perform exploratory data analysis on air quality measurements.
+- Clean and preprocess the dataset.
+- Analyse relationships between pollutants and environmental variables.
+- Train and compare multiple regression algorithms.
+- Evaluate models using chronological validation.
+- Perform hyperparameter tuning to improve model performance.
+- Develop an interactive Streamlit application for predictions.
 
+## Dataset
 
-\## Objectives
+**Dataset:** UCI Air Quality Dataset
 
+The dataset contains hourly air-quality measurements collected using an array of chemical sensors.
 
+The project uses the following input features:
 
-\* Analyze air quality and environmental measurements.
+- PT08.S1(CO)
+- C6H6(GT)
+- NOx(GT)
+- NO2(GT)
+- Temperature (T)
+- Relative Humidity (RH)
+- Absolute Humidity (AH)
 
-\* Train and evaluate machine learning regression models.
+**Prediction Target:** CO(GT) – Carbon Monoxide concentration.
 
-\* Select a model using chronological evaluation.
+The dataset contains `-200` values representing missing measurements, which are handled during preprocessing.
 
-\* Provide an interactive interface for making predictions.
+## Technology Stack
 
+| Category | Technologies |
+|---|---|
+| Programming Language | Python |
+| Data Analysis | Pandas, NumPy |
+| Data Visualization | Matplotlib, Seaborn |
+| Machine Learning | Scikit-learn |
+| Model Persistence | Joblib |
+| Web Application | Streamlit |
+| Development Environment | Jupyter Notebook, VS Code |
+| Version Control | Git and GitHub |
 
-## Project Structure
+## Machine Learning Workflow
 
-```text
-Air_Quality_ML_Project/
-├── air_quality_output/
-│   ├── best_air_quality_model.pkl
-│   ├── feature_names.pkl
-│   ├── feature_metadata.json
-│   └── model_metrics.json
-├── AirQualityUCI.csv
-├── AirQualityUCI.xlsx
-├── app.py
-├── requirements.txt
-└── README.md
-```
+1. **Data Collection:** Load the UCI Air Quality dataset.
+2. **Data Preprocessing:** Handle missing values and prepare the input features and prediction target.
+3. **Exploratory Data Analysis:** Investigate distributions, correlations and relationships between variables.
+4. **Model Development:** Train and compare multiple regression algorithms.
+5. **Model Evaluation:** Evaluate model performance using chronological train-test splitting and time-series cross-validation.
+6. **Hyperparameter Tuning:** Optimise the selected Extra Trees Regressor.
+7. **Model Interpretation:** Use feature importance and SHAP analysis to understand model behaviour.
+8. **Deployment Interface:** Integrate the trained model into an interactive Streamlit application.
 
-* `app.py`: Streamlit application for air quality prediction.
-* `AirQualityUCI.csv` and `AirQualityUCI.xlsx`: Dataset files.
-* `air_quality_output/`: Saved model, feature information, and evaluation metrics.
-* `requirements.txt`: Python dependencies.
-* `README.md`: Project documentation.
+## Models Evaluated
 
+The project experiments with the following regression algorithms:
 
+- Linear Regression
+- Decision Tree Regressor
+- Random Forest Regressor
+- Extra Trees Regressor
+- Gradient Boosting Regressor
+- K-Nearest Neighbours Regressor
+- Support Vector Regression (SVR)
 
+The final model selected for the application is the **tuned Extra Trees Regressor**.
 
-\## Technology Stack
+Model selection considers chronological holdout performance and time-series cross-validation rather than relying on a single random train-test split.
 
+## Final Model Performance
 
+The tuned Extra Trees model achieved the following results on the chronological holdout evaluation:
 
-\* Python
+| Evaluation Metric | Result |
+|---|---:|
+| R² Score | 0.8517 |
+| Mean Absolute Error (MAE) | 0.3448 |
+| Root Mean Squared Error (RMSE) | 0.5178 |
 
-\* Pandas and NumPy
+These results indicate that the model explains approximately 85.17% of the variance in the evaluated target values.
 
-\* Scikit-learn
+*Note: These metrics represent performance on the project's evaluation dataset. They do not guarantee real-world accuracy.*
 
-\* Streamlit
+## Streamlit Application
 
-\* Joblib
+The project includes an interactive web application built using Streamlit.
 
-\* Matplotlib
-
-
-
-\## Machine Learning
-
-
-
-The project evaluates multiple regression algorithms and selects the best-performing model based on chronological holdout results.
-
-
-
-The currently selected model is Extra Trees.
-
-
-
-\* R²: 0.835
-
-\* MAE: 0.3667
-
-\* RMSE: 0.5461
-
-
-
-These metrics represent the project's chronological evaluation results and are not a guarantee of real-world predictive accuracy.
-
-
-
-\## Application Features
-
-
-
-\* Interactive environmental input fields.
-
-\* Machine learning-based CO prediction.
-
-\* Prediction results displayed through a dashboard.
-
-\* Model evaluation information.
-
-\* A note explaining that predictions are estimates, not official air quality measurements.
-
-
-
-\## Run Locally
-
-
-
-## Installation and Usage
-
-Follow these steps to run the application on your computer.
-
-### Prerequisites
-
-* Python 3.10 or a compatible version.
-* Git (optional, if cloning the repository).
-
-### 1. Clone the Repository
+### Application Features
+
+- Modern dark-themed dashboard.
+- Home page with project overview.
+- Interactive CO concentration prediction.
+- Sensor and environmental input fields.
+- Tuned Extra Trees model integration.
+- Model evaluation metrics.
+- Feature information and project methodology.
+- Input validation and error handling.
+
+### Run the Application Locally
+
+**1. Clone the repository**
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
-cd Air_Quality_ML_Project
+git clone https://github.com/alishaachhabra/Air-Quality-Analysis-and-Prediction.git
 ```
 
-Replace `YOUR_GITHUB_REPOSITORY_URL` with your actual repository URL after we create it.
+**2. Navigate to the project directory**
 
-### 2. Install Dependencies
+```bash
+cd Air-Quality-Analysis-and-Prediction
+```
+
+**3. Install dependencies**
 
 ```bash
 python -m pip install -r requirements.txt
 ```
 
-### 3. Run the Application
+**4. Start the Streamlit application**
 
 ```bash
 python -m streamlit run app.py
 ```
 
-### 4. Open the Dashboard
+**5. Open the application**
 
-Open the local URL displayed in the terminal, usually `http://localhost:8501`.
+Visit the local address displayed in your terminal:
 
-### Troubleshooting
+```text
+http://localhost:8501
+```
 
-* If a Python package is missing, install the dependencies again.
-* Ensure the `air_quality_output` folder contains the saved model and supporting files.
-* If the application does not start, check the terminal for the error message.
+Make sure the `air_quality_output` directory contains the trained model and its corresponding feature and metrics files.
 
+## Project Structure
 
+```text
+Air_Quality_ML_Project/
+│
+├── air_quality_output/
+│   ├── best_air_quality_model.pkl
+│   ├── feature_names.pkl
+│   ├── feature_metadata.json
+│   ├── model_metrics.json
+│   ├── tuned_extra_trees_model.pkl
+│   ├── tuned_feature_names.pkl
+│   └── tuned_model_metrics.json
+│
+├── AirQualityUCI.csv
+├── AirQualityUCI.xlsx
+├── Air_Quality_Analysis_Upgraded.ipynb
+├── app.py
+├── requirements.txt
+├── .gitignore
+└── README.md
+```
 
-\## Disclaimer
+## Key Learning Outcomes
 
+- Data cleaning and preprocessing.
+- Exploratory data analysis.
+- Regression modelling and algorithm comparison.
+- Chronological model evaluation.
+- Time-series cross-validation.
+- Hyperparameter optimisation.
+- Model interpretability using SHAP.
+- Integrating machine learning models with Streamlit.
+- Git and GitHub version control.
 
+## Limitations
 
-This application is intended for educational and analytical purposes. Its predictions should not replace official air quality monitoring measurements.
+- Predictions depend on the quality and distribution of the training data.
+- Model estimates should not be interpreted as official air-quality measurements.
+- The application estimates CO(GT) from supplied feature values; it is not necessarily a forecast of future air quality.
 
+## Disclaimer
 
+This project is developed for educational and analytical purposes. Its predictions should not replace official air-quality monitoring systems, environmental assessments, or health-related advice.
 
-\## Author
+## Author
 
+**Alisha Chhabra**
 
+B.Tech CSE – Data Science
 
-Alisha Chhabra
+GitHub: https://github.com/alishaachhabra
 
+---
 
-
+*Air Quality Analysis and Prediction Using Machine Learning*
