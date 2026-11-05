@@ -1,0 +1,6 @@
+{
+    "model": "Tuned Extra Trees Regressor",
+    "test_r2": 0.8516700026647813,
+    "test_mae": 0.3447797635693535,
+    "test_rmse": 0.5178226825307115
+}
