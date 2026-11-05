@@ -4,3 +4,7 @@ numpy
 scikit-learn
 joblib
 matplotlib
+seaborn
+shap
+openpyxl
+jupyter
